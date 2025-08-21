@@ -1,0 +1,31 @@
+body {
+  font-family: monospace;
+  background-color: rgb(67, 106, 33);
+  background-image: url("https://www.transparenttextures.com/patterns/pool-table.png");
+  user-select: none;
+}
+
+.pen {
+  min-height: 200px;
+  outline: 10px outset gray;
+  border: dashed 3px darkgray;
+  box-shadow: inset 5px -5px 12px rgba(0, 0, 0, 0.596);
+}
+
+.animal span {
+  font-size: 35px;
+  filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.658));
+  user-select: none;
+  cursor: grab;
+  display: inline-block;
+  transition: all .2s ease;
+}
+
+.animal span:active {
+  cursor: url("watermelon_1f349.png") 1 2, grabbing;
+  transform: scale(1.5);
+}
+
+marquee {
+  height: 200px;
+}
