@@ -64,6 +64,7 @@ function getAnimal(animalName) {
   return selectedAnimal
 }
 
+// looks at the animals hunger and changes their status 'emoji'
 function updateAnimalsStatuses() {
   animals.forEach((animal) => {
     if (animal.hunger > 80) {
@@ -80,6 +81,7 @@ function updateAnimalsStatuses() {
 }
 
 
+// function get's the paycheck amount from calculatePaycheck(), adds it to the bank, draws the bank
 function collectMoney() {
   bank += calculatePaycheck()
   drawBank()
@@ -109,17 +111,19 @@ function calculatePaycheck() {
   return paycheck
 }
 
-
 // 🖌️🎨 VISUAL FUNCTIONS (functions that draw data to page)-------------
 
+// element references
 let bankElement = document.getElementById('bank-amount')
 let payheckElement = document.getElementById('paycheck-amount')
 
+// iterates through the animals, and draws each of their stats
 function drawAnimals() {
   animals.forEach((animal) => {
     let animalStatsElement = document.getElementById(`${animal.name}-stats`)
-    // console.log(`${animal.name}-stats`, animalStatsElement);
+    // NOTE while not used, this helper function could assist with getting elements off the page
     // let animalStatsElement = getAnimalStatsElement(animal.name)
+    // console.log(`${animal.name}-stats`, animalStatsElement);
 
     animalStatsElement.innerHTML = `${animal.hunger}${animal.status}`
   })
@@ -137,16 +141,20 @@ function getAnimalStatsElement(animalName) {
   return animalStatsElement
 }
 
+// updates the page with the banks current value
 function drawBank() {
   bankElement.innerText = `${bank}` // turns the number into a string
   updateCursor()
 }
 
+// Takes paycheck amount from 'calculatePaycheck()' and draws it to the page
 function drawCurrentPayCheck() {
   let paycheck = calculatePaycheck()
-  payheckElement.innerText = `${paycheck}`
+  payheckElement.innerText = `${paycheck}` // `${paycheck}` makes the paycheck number a string
 }
 
+
+// just something fun to update the cursor when you can't afford something
 function updateCursor() {
   if (bank < 10) {
     document.body.style = `
